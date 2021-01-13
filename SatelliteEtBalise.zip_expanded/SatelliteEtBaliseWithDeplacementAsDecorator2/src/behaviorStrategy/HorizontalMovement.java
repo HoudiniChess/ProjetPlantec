@@ -4,7 +4,7 @@ import java.awt.Point;
 
 import model.ElementMobile;
 
-public class HorizontalMovement extends BeaconDeplacement
+public class HorizontalMovement extends BeaconMovement
 {
   Integer start;
   Integer end;

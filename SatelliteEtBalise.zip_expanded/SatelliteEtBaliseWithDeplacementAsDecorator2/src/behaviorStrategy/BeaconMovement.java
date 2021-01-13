@@ -4,12 +4,12 @@ import events.SatelliteMoved;
 import model.Beacon;
 import model.ElementMobile;
 
-public class BeaconDeplacement extends Movement
+public class BeaconMovement extends Movement
 {
 
   protected Movement next;
 
-  public BeaconDeplacement(Movement next)
+  public BeaconMovement(Movement next)
   {
     this.next = next;
   }

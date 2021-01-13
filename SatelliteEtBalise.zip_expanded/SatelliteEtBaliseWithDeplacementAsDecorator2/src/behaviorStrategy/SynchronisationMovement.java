@@ -5,7 +5,7 @@ import events.SynchroEvent;
 import model.Beacon;
 import model.Satellite;
 
-public class SynchronisationMovement extends BeaconDeplacement
+public class SynchronisationMovement extends BeaconMovement
 {
   private int synchroTime;
   private Satellite synchro;
@@ -52,7 +52,8 @@ public class SynchronisationMovement extends BeaconDeplacement
       target.send(new SynchroEvent(this));
       sat.send(new SynchroEvent(this));
       target.getManager().baliseSynchroDone(target);
-      target.setDeplacement(next);
+      target.resetData();
+      target.setMouvement(next);
     }
   }
 }

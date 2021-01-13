@@ -4,7 +4,7 @@ import java.awt.Point;
 
 import model.Beacon;
 
-public class DiveMovement extends BeaconDeplacement
+public class DiveMovement extends BeaconMovement
 {
   int deepness;
 
@@ -28,8 +28,18 @@ public class DiveMovement extends BeaconDeplacement
     }
     else
     {
-      target.setDeplacement(next);
+      target.setMouvement(next);
     }
+  }
+
+  public int getDeepness()
+  {
+    return deepness;
+  }
+
+  public void setDeepness(int deepness)
+  {
+    this.deepness = deepness;
   }
 
 }

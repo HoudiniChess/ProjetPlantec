@@ -34,7 +34,7 @@ public class Simulation {
 	public void addBalise(GBounded sea, int memorySize, Point startPos, Movement depl) {		
 		Beacon bal = new Beacon(memorySize);
 		bal.setPosition(startPos);
-		bal.setDeplacement(depl);
+		bal.setMouvement(depl);
 		manager.addBalise(bal);
 		GrBalise grbal = new GrBalise();
 		grbal.setModel(bal);
@@ -44,7 +44,7 @@ public class Simulation {
 	public void addSatelitte(GBounded sky, int memorySize, Point startPos, int vitesse) {		
 		Satellite sat = new Satellite(memorySize);
 		sat.setPosition(startPos);
-		sat.setDeplacement(new SatelliteMovement(-10,1000, vitesse));
+		sat.setMouvement(new SatelliteMovement(-10,1000, vitesse));
 		manager.addSatellite(sat);
 		GrSatelitte grSat = new GrSatelitte();
 		grSat.setModel(sat);

@@ -34,7 +34,7 @@ public class ElementMobile
     return this.memorySize;
   }
 
-  public Movement deplacement()
+  public Movement movement()
   {
     return movement;
   }
@@ -45,12 +45,12 @@ public class ElementMobile
 
   }
 
-  protected void resetData()
+  public void resetData()
   {
     this.dataSize = 0;
   }
 
-  protected boolean memoryFull()
+  public boolean memoryFull()
   {
     return (this.dataSize >= this.memorySize);
   }
@@ -95,7 +95,7 @@ public class ElementMobile
     return position;
   }
 
-  public void setDeplacement(Movement depl)
+  public void setMouvement(Movement depl)
   {
     this.movement = depl;
   }

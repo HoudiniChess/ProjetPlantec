@@ -5,7 +5,7 @@ import java.awt.Point;
 import model.Beacon;
 import model.ElementMobile;
 
-public class MonteSurfacePourSynchro extends BeaconDeplacement
+public class MonteSurfacePourSynchro extends BeaconMovement
 {
 
   public MonteSurfacePourSynchro(Movement next)
@@ -28,7 +28,7 @@ public class MonteSurfacePourSynchro extends BeaconDeplacement
     else
     {
       target.getManager().baliseReadyForSynchro((Beacon) target);
-      target.setDeplacement(this.next);
+      target.setMouvement(this.next);
     }
   }
 
