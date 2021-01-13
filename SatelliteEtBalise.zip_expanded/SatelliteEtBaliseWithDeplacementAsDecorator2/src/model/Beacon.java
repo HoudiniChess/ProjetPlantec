@@ -1,19 +1,20 @@
 package model;
 
-import behaviorStrategy.BeaconDeplacement;
-import behaviorStrategy.DiveMovement;
-import behaviorStrategy.MonteSurfacePourSynchro;
-import behaviorStrategy.Movement;
-import behaviorStrategy.SynchronisationMovement;
+import behaviorStrategy.BeaconMovement;
 import events.SatelliteMoveListener;
 import events.SatelliteMoved;
+import state.DeSynchroStateBeacon;
+import state.StateBeacon;
 
 public class Beacon extends ElementMobile implements SatelliteMoveListener
 {
 
+  protected StateBeacon state;
+
   public Beacon(int memorySize)
   {
     super(memorySize);
+    this.state = new DeSynchroStateBeacon();
   }
 
   public int deepness()
@@ -21,7 +22,7 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
     return this.getPosition().y;
   }
 
-  protected void readSensors()
+  public void readSensors()
   {
     this.dataSize++;
   }
@@ -29,23 +30,25 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
   @Override
   public void tick()
   {
-    this.readSensors();
-    if (this.memoryFull())
-    {
-      Movement diving = new DiveMovement(this.deplacement(), this.deepness());
-      Movement synchroBehavior = new SynchronisationMovement(diving);
-      Movement nextMovement = new MonteSurfacePourSynchro(synchroBehavior);
-      this.setDeplacement(nextMovement);
-      this.resetData();
-    }
+    state.handleSynchro(this);
     super.tick();
   }
 
   @Override
   public void whenSatelliteMoved(SatelliteMoved arg)
   {
-    BeaconDeplacement dp = (BeaconDeplacement) this.movement;
+    BeaconMovement dp = (BeaconMovement) this.movement;
     dp.whenSatelliteMoved(arg, this);
+  }
+
+  public StateBeacon getState()
+  {
+    return state;
+  }
+
+  public void setState(StateBeacon state)
+  {
+    this.state = state;
   }
 
 }
