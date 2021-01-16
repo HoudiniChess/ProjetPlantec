@@ -1,25 +1,37 @@
 package state;
 
+import behaviorStrategy.DiveMovement;
+import behaviorStrategy.MonteSurfacePourSynchro;
+import behaviorStrategy.Movement;
+import behaviorStrategy.SynchronisationMovement;
 import model.Beacon;
 
-public class SynchroStateBeacon extends StateBeacon
+public class SynchroStateBeacon extends State
 {
 
   @Override
-  public void handleSynchro(Beacon beacon)
+  public void behaviorState(Beacon beacon)
   {
+    // Traiter remonte
 
-    if (!beacon.memoryFull())
+    // Traiter synchro
+
+    // Traiter redescente
+    Movement diving = new DiveMovement(beacon.movement(), beacon.deepness());
+    Movement synchroBehavior = new SynchronisationMovement(diving);
+    Movement nextMovement = new MonteSurfacePourSynchro(synchroBehavior);
+    beacon.setMouvement(nextMovement);
+    if (beacon.memoryFull())
     {
       beacon.resetData();
-      this.next(beacon);
+      this.nextState(beacon);
     }
   }
 
   @Override
-  public void next(Beacon beacon)
+  public void nextState(Beacon beacon)
   {
-    DeSynchroStateBeacon stateDesynchro = new DeSynchroStateBeacon();
+    Collect stateDesynchro = new Collect();
     beacon.setState(stateDesynchro);
   }
 

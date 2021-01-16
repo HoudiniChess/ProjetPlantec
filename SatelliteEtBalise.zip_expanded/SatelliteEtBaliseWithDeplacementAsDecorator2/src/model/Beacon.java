@@ -3,18 +3,18 @@ package model;
 import behaviorStrategy.BeaconMovement;
 import events.SatelliteMoveListener;
 import events.SatelliteMoved;
-import state.DeSynchroStateBeacon;
-import state.StateBeacon;
+import state.Collect;
+import state.State;
 
 public class Beacon extends ElementMobile implements SatelliteMoveListener
 {
 
-  protected StateBeacon state;
+  protected State state;
 
   public Beacon(int memorySize)
   {
     super(memorySize);
-    this.state = new DeSynchroStateBeacon();
+    this.state = new Collect();
   }
 
   public int deepness()
@@ -30,7 +30,7 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
   @Override
   public void tick()
   {
-    state.handleSynchro(this);
+    state.behaviorState(this);
     super.tick();
   }
 
@@ -41,12 +41,12 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
     dp.whenSatelliteMoved(arg, this);
   }
 
-  public StateBeacon getState()
+  public State getState()
   {
     return state;
   }
 
-  public void setState(StateBeacon state)
+  public void setState(State state)
   {
     this.state = state;
   }
