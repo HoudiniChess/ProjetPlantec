@@ -80,7 +80,7 @@ public class Simulation
     this.addBalise(sea, 400, new Point(100, 100), new VerticalMovement(50, 200));
     this.addBalise(sea, 200, new Point(0, 160), new HorizontalMovement(0, 800));
     this.addBalise(sea, 500, new Point(200, 100), new VerticalMovement(130, 270));
-    this.addBalise(sea, 150, new Point(300, 100), new SinusoidaleMovement(200, 600, 100, 300));
+    this.addBalise(sea, 150, new Point(300, 100), new SinusoidaleMovement(100, 700, 50, 200));
     this.world.open();
     this.mainLoop();
   }
