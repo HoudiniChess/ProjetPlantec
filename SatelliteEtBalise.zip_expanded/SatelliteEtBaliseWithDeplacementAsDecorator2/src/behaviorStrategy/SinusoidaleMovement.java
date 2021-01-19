@@ -28,7 +28,6 @@ public class SinusoidaleMovement extends BeaconMovement
   @Override
   public void move(ElementMobile target)
   {
-    System.out.println("Move - SinusoidaleMovement");
     Point p = target.getPosition();
     System.out.println(p);
     int x = p.x;
