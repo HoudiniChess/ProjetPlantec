@@ -52,7 +52,7 @@ public class SynchronisationMovement extends BeaconMovement
       target.send(new SynchroEvent(this));
       sat.send(new SynchroEvent(this));
       target.getManager().baliseSynchroDone(target);
-      target.resetData();
+      target.getMemory().resetData();
       target.setMouvement(next);
     }
   }

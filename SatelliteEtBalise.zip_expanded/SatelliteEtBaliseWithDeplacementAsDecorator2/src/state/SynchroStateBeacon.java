@@ -1,12 +1,12 @@
 package state;
 
 import behaviorStrategy.DiveMovement;
-import behaviorStrategy.MonteSurfacePourSynchro;
+import behaviorStrategy.AscendMovement;
 import behaviorStrategy.Movement;
 import behaviorStrategy.SynchronisationMovement;
 import model.Beacon;
 
-public class SynchroStateBeacon extends State
+public class SynchroStateBeacon extends BeaconState
 {
 
   @Override
@@ -19,11 +19,10 @@ public class SynchroStateBeacon extends State
     // Traiter redescente
     Movement diving = new DiveMovement(beacon.movement(), beacon.deepness());
     Movement synchroBehavior = new SynchronisationMovement(diving);
-    Movement nextMovement = new MonteSurfacePourSynchro(synchroBehavior);
+    Movement nextMovement = new AscendMovement(synchroBehavior);
     beacon.setMouvement(nextMovement);
-    if (beacon.memoryFull())
+    if (beacon.getMemory().memoryFull())
     {
-      beacon.resetData();
       this.nextState(beacon);
     }
   }
@@ -31,8 +30,15 @@ public class SynchroStateBeacon extends State
   @Override
   public void nextState(Beacon beacon)
   {
-    Collect stateDesynchro = new Collect();
+    BeaconStateCollect stateDesynchro = new BeaconStateCollect();
     beacon.setState(stateDesynchro);
+  }
+
+  @Override
+  public void install(Beacon beacon)
+  {
+    // TODO Auto-generated method stub
+
   }
 
 }

@@ -4,10 +4,13 @@ import events.SatelliteMoved;
 
 public class Satellite extends ElementMobile
 {
+  protected Memory memory;
 
-  public Satellite(int memorySize)
+  public Satellite(Memory memory)
   {
-    super(memorySize);
+    super();
+    this.memory = memory;
+
   }
 
   @Override

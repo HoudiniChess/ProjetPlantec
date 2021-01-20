@@ -12,26 +12,12 @@ public class ElementMobile
   Movement movement;
   Point position;
   EventHandler eventHandler;
-  int memorySize;
-  int dataSize;
   Manager manager;
 
-  public ElementMobile(int memorySize)
+  public ElementMobile()
   {
     eventHandler = new EventHandler();
-    this.memorySize = memorySize;
-    this.dataSize = 0;
     this.position = new Point(0, 0);
-  }
-
-  public int dataSize()
-  {
-    return this.dataSize;
-  }
-
-  public int memorySize()
-  {
-    return this.memorySize;
   }
 
   public Movement movement()
@@ -43,16 +29,6 @@ public class ElementMobile
   {
     this.manager = manager;
 
-  }
-
-  public void resetData()
-  {
-    this.dataSize = 0;
-  }
-
-  public boolean memoryFull()
-  {
-    return (this.dataSize >= this.memorySize);
   }
 
   // enregistrement des listeners

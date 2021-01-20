@@ -5,12 +5,19 @@ import java.awt.Point;
 import model.Beacon;
 import model.ElementMobile;
 
-public class MonteSurfacePourSynchro extends BeaconMovement
+public class AscendMovement extends BeaconMovement
 {
 
-  public MonteSurfacePourSynchro(Movement next)
+  public AscendMovement(Movement next)
   {
     super(next);
+    // TODO Auto-generated constructor stub
+  }
+
+  // TURBO MARLOUTAGE PAS BIEN
+  public AscendMovement()
+  {
+    super(null);
   }
 
   @Override
@@ -22,7 +29,11 @@ public class MonteSurfacePourSynchro extends BeaconMovement
     {
       y -= 3;
       if (y < 0)
+      {
         y = 0;
+        super.setFinish();
+      }
+
       target.setPosition(new Point(p.x, y));
     }
     else

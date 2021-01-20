@@ -2,7 +2,7 @@ package state;
 
 import model.Beacon;
 
-public class Collect extends State
+public class BeaconStateCollect extends BeaconState
 {
 
   @Override
@@ -21,23 +21,19 @@ public class Collect extends State
 
   private boolean shouldContinue(Beacon beacon)
   {
-    if (!beacon.memoryFull())
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+    return !beacon.getMemory().memoryFull();
   }
 
   @Override
   public void nextState(Beacon beacon)
   {
-    SynchroStateBeacon stateSynchro = new SynchroStateBeacon();
-    beacon.setState(stateSynchro);
+    BeaconStateAscend stateAscend = new BeaconStateAscend();
+    stateAscend.install(beacon);
+    beacon.setState(stateAscend);
+
   }
 
+  @Override
   public void install(Beacon beacon)
   {
     // que se passe t'il quand l'état est intalle

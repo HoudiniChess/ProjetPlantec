@@ -1,6 +1,7 @@
 package events;
 
 import eventHandler.AbstractEvent;
+import model.Memory;
 
 public class MemoryChanged extends AbstractEvent
 {

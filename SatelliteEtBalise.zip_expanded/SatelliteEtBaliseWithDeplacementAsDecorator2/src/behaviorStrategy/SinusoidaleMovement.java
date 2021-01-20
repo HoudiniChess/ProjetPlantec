@@ -29,7 +29,6 @@ public class SinusoidaleMovement extends BeaconMovement
   public void move(ElementMobile target)
   {
     Point p = target.getPosition();
-    System.out.println(p);
     int x = p.x;
     int y = p.y;
     x += defaultSpeed;

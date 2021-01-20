@@ -14,6 +14,7 @@ import graphicLayer.GRect;
 import graphicLayer.GSpace;
 import model.Beacon;
 import model.Manager;
+import model.Memory;
 import model.Satellite;
 
 public class Simulation
@@ -38,9 +39,9 @@ public class Simulation
     }
   }
 
-  public void addBalise(GBounded sea, int memorySize, Point startPos, Movement depl)
+  public void addBeacon(GBounded sea, Point startPos, Movement depl, Memory memory)
   {
-    Beacon bal = new Beacon(memorySize);
+    Beacon bal = new Beacon(memory);
     bal.setPosition(startPos);
     bal.setMouvement(depl);
     manager.addBalise(bal);
@@ -49,9 +50,9 @@ public class Simulation
     sea.addElement(grbal);
   }
 
-  public void addSatelitte(GBounded sky, int memorySize, Point startPos, int vitesse)
+  public void addSatellite(GBounded sky, Point startPos, int vitesse, Memory memory)
   {
-    Satellite sat = new Satellite(memorySize);
+    Satellite sat = new Satellite(memory);
     sat.setPosition(startPos);
     sat.setMouvement(new SatelliteMovement(-10, 1000, vitesse));
     manager.addSatellite(sat);
@@ -71,16 +72,16 @@ public class Simulation
     sea.setPosition(new Point(0, 300));
     this.world.addElement(sky);
     this.world.addElement(sea);
-    this.addSatelitte(sky, 100000, new Point(10, 50), 2);
-    this.addSatelitte(sky, 100000, new Point(100, 10), 1);
-    this.addSatelitte(sky, 100000, new Point(400, 90), 3);
-    this.addSatelitte(sky, 100000, new Point(500, 140), 4);
-    this.addSatelitte(sky, 100000, new Point(600, 10), 1);
-    this.addBalise(sea, 300, new Point(400, 200), new HorizontalMovement(50, 750));
-    this.addBalise(sea, 400, new Point(100, 100), new VerticalMovement(50, 200));
-    this.addBalise(sea, 200, new Point(0, 160), new HorizontalMovement(0, 800));
-    this.addBalise(sea, 500, new Point(200, 100), new VerticalMovement(130, 270));
-    this.addBalise(sea, 150, new Point(300, 100), new SinusoidaleMovement(100, 700, 50, 200));
+    this.addSatellite(sky, new Point(10, 50), 2, new Memory(10000));
+    this.addSatellite(sky, new Point(100, 10), 1, new Memory(10000));
+    this.addSatellite(sky, new Point(400, 90), 3, new Memory(10000));
+    this.addSatellite(sky, new Point(500, 140), 4, new Memory(10000));
+    this.addSatellite(sky, new Point(600, 10), 1, new Memory(10000));
+    this.addBeacon(sea, new Point(400, 200), new HorizontalMovement(50, 750), new Memory(300));
+    this.addBeacon(sea, new Point(100, 100), new VerticalMovement(50, 200), new Memory(400));
+    this.addBeacon(sea, new Point(0, 160), new HorizontalMovement(0, 800), new Memory(200));
+    this.addBeacon(sea, new Point(200, 100), new VerticalMovement(130, 270), new Memory(500));
+    this.addBeacon(sea, new Point(300, 100), new SinusoidaleMovement(100, 700, 50, 200), new Memory(150));
     this.world.open();
     this.mainLoop();
   }
