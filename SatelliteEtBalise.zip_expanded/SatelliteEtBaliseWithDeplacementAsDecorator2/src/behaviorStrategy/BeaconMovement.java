@@ -7,13 +7,6 @@ import model.ElementMobile;
 public class BeaconMovement extends Movement
 {
 
-  protected Movement next;
-
-  public BeaconMovement(Movement next)
-  {
-    this.next = next;
-  }
-
   public void move(Beacon target)
   {}
 

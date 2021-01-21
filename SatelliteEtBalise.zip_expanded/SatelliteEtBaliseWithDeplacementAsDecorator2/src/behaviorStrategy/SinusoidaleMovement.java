@@ -17,7 +17,6 @@ public class SinusoidaleMovement extends BeaconMovement
 
   public SinusoidaleMovement(int minX, int maxX, int minY, int maxY)
   {
-    super(null);
     this.minX = minX;
     this.maxX = maxX;
 

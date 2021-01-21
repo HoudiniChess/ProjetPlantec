@@ -12,7 +12,6 @@ public class HorizontalMovement extends BeaconMovement
 
   public HorizontalMovement(Integer start, Integer end)
   {
-    super(null);
     this.start = start;
     this.end = end;
   }

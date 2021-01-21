@@ -10,7 +10,7 @@ public class BeaconStateAscend extends BeaconState
   public void behaviorState(Beacon beacon)
   {
     beacon.move();
-    if (beacon.movement().isFinish())
+    if (beacon.getMovement().isFinish())
     {
       this.nextState(beacon);
     }
@@ -19,6 +19,7 @@ public class BeaconStateAscend extends BeaconState
   @Override
   public void nextState(Beacon beacon)
   {
+    System.out.println("State Ascend - next State");
     BeaconStateSynchro stateSynchro = new BeaconStateSynchro();
     stateSynchro.install(beacon);
     beacon.setState(stateSynchro);
@@ -28,7 +29,7 @@ public class BeaconStateAscend extends BeaconState
   @Override
   public void install(Beacon beacon)
   {
-    beacon.setMouvement(new AscendMovement());
+    beacon.setMovement(new AscendMovement());
 
   }
 

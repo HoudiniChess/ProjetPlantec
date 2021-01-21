@@ -12,7 +12,6 @@ public class VerticalMovement extends BeaconMovement
 
   public VerticalMovement(Integer min, Integer max)
   {
-    super(null);
     this.min = min;
     this.max = max;
   }

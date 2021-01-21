@@ -8,6 +8,11 @@ public class BeaconStateCollect extends BeaconState
   @Override
   public void behaviorState(Beacon beacon)
   {
+
+    if (!isInstall)
+    {
+      this.install(beacon);
+    }
     // Si l'état courant continue
     if (this.shouldContinue(beacon))
       beacon.readSensors();
@@ -36,7 +41,11 @@ public class BeaconStateCollect extends BeaconState
   @Override
   public void install(Beacon beacon)
   {
-    // que se passe t'il quand l'état est intalle
+    this.isInstall = true;
+    beacon.setMovement(beacon.getCollectMovement());
+    // reprendre le mouvement de base
+    // Sauvegarde du mouvement de base ?
+
   }
 
 }

@@ -15,9 +15,8 @@ public class SynchronisationMovement extends BeaconMovement
     return this.synchro != null;
   }
 
-  public SynchronisationMovement(Movement next)
+  public SynchronisationMovement()
   {
-    super(next);
     this.synchroTime = 10;
     this.synchro = null;
   }
@@ -38,22 +37,4 @@ public class SynchronisationMovement extends BeaconMovement
     }
   }
 
-  @Override
-  public void move(Beacon target)
-  {
-    if (this.synchro == null)
-      return;
-    this.synchroTime--;
-    if (synchroTime <= 0)
-    {
-      Satellite sat = this.synchro;
-      this.synchro = null;
-      this.synchroTime = 10;
-      target.send(new SynchroEvent(this));
-      sat.send(new SynchroEvent(this));
-      target.getManager().baliseSynchroDone(target);
-      target.getMemory().resetData();
-      target.setMouvement(next);
-    }
-  }
 }

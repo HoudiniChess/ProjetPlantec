@@ -10,6 +10,7 @@ import events.PositionChanged;
 public class ElementMobile
 {
   Movement movement;
+
   Point position;
   EventHandler eventHandler;
   Manager manager;
@@ -18,11 +19,7 @@ public class ElementMobile
   {
     eventHandler = new EventHandler();
     this.position = new Point(0, 0);
-  }
 
-  public Movement movement()
-  {
-    return movement;
   }
 
   public void setManager(Manager manager)
@@ -71,7 +68,12 @@ public class ElementMobile
     return position;
   }
 
-  public void setMouvement(Movement depl)
+  public Movement getMovement()
+  {
+    return this.movement;
+  }
+
+  public void setMovement(Movement depl)
   {
     this.movement = depl;
   }

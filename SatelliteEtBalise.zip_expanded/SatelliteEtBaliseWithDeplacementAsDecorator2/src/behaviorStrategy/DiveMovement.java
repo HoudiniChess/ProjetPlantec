@@ -10,7 +10,6 @@ public class DiveMovement extends BeaconMovement
 
   public DiveMovement(Movement next, int deepness)
   {
-    super(next);
     this.deepness = deepness;
   }
 
@@ -26,10 +25,7 @@ public class DiveMovement extends BeaconMovement
         y = this.deepness;
       target.setPosition(new Point(p.x, y));
     }
-    else
-    {
-      target.setMouvement(next);
-    }
+
   }
 
   public int getDeepness()

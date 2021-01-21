@@ -8,16 +8,10 @@ import model.ElementMobile;
 public class AscendMovement extends BeaconMovement
 {
 
-  public AscendMovement(Movement next)
-  {
-    super(next);
-    // TODO Auto-generated constructor stub
-  }
-
   // TURBO MARLOUTAGE PAS BIEN
   public AscendMovement()
   {
-    super(null);
+    //
   }
 
   @Override
@@ -39,7 +33,6 @@ public class AscendMovement extends BeaconMovement
     else
     {
       target.getManager().baliseReadyForSynchro((Beacon) target);
-      target.setMouvement(this.next);
     }
   }
 

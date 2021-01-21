@@ -43,7 +43,7 @@ public class Simulation
   {
     Beacon bal = new Beacon(memory);
     bal.setPosition(startPos);
-    bal.setMouvement(depl);
+    bal.setCollectMovement(depl);
     manager.addBalise(bal);
     GrBalise grbal = new GrBalise();
     grbal.setModel(bal);
@@ -54,7 +54,7 @@ public class Simulation
   {
     Satellite sat = new Satellite(memory);
     sat.setPosition(startPos);
-    sat.setMouvement(new SatelliteMovement(-10, 1000, vitesse));
+    sat.setMovement(new SatelliteMovement(-10, 1000, vitesse));
     manager.addSatellite(sat);
     GrSatelitte grSat = new GrSatelitte();
     grSat.setModel(sat);

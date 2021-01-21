@@ -1,22 +1,24 @@
 package model;
 
 import behaviorStrategy.BeaconMovement;
+import behaviorStrategy.Movement;
 import events.SatelliteMoveListener;
 import events.SatelliteMoved;
-import state.BeaconStateCollect;
 import state.BeaconState;
+import state.BeaconStateCollect;
 
 public class Beacon extends ElementMobile implements SatelliteMoveListener
 {
 
   protected BeaconState state;
+  Movement collectMovement; // Comportement nominal de l'element mobile.
   protected Memory memory;
 
   public Beacon(Memory memory)
   {
     super();
-    this.state = new BeaconStateCollect();
     this.memory = memory;
+    this.state = new BeaconStateCollect();
   }
 
   public int deepness()
@@ -32,6 +34,8 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
   @Override
   public void tick()
   {
+    System.out.println(this.state);
+    System.out.println(this.movement);
     state.behaviorState(this);
     super.tick();
   }
@@ -56,6 +60,16 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
   public Memory getMemory()
   {
     return memory;
+  }
+
+  public Movement getCollectMovement()
+  {
+    return collectMovement;
+  }
+
+  public void setCollectMovement(Movement collectMovement)
+  {
+    this.collectMovement = collectMovement;
   }
 
 }
