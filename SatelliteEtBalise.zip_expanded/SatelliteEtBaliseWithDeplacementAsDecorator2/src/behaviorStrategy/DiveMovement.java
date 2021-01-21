@@ -8,7 +8,7 @@ public class DiveMovement extends BeaconMovement
 {
   int deepness;
 
-  public DiveMovement(Movement next, int deepness)
+  public DiveMovement(int deepness)
   {
     this.deepness = deepness;
   }

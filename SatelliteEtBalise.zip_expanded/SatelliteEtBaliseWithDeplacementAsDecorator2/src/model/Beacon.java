@@ -34,8 +34,6 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
   @Override
   public void tick()
   {
-    System.out.println(this.state);
-    System.out.println(this.movement);
     state.behaviorState(this);
     super.tick();
   }

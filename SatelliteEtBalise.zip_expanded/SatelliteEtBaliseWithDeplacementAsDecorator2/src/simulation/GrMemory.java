@@ -28,7 +28,6 @@ public class GrMemory extends GRect implements MemoryChangeListener
   public void whenMemoryChanged(MemoryChanged memoryChanged)
   {
     Memory memory = (Memory) memoryChanged.getSource();
-    System.out.println(memory.getFillMemory());
     int pourcentage = memory.getFillMemory() * 60 / memory.getSize();
 
     this.loadingBar.setDimension(new Dimension(14, pourcentage));

@@ -19,7 +19,6 @@ public class BeaconStateAscend extends BeaconState
   @Override
   public void nextState(Beacon beacon)
   {
-    System.out.println("State Ascend - next State");
     BeaconStateSynchro stateSynchro = new BeaconStateSynchro();
     stateSynchro.install(beacon);
     beacon.setState(stateSynchro);
@@ -30,7 +29,6 @@ public class BeaconStateAscend extends BeaconState
   public void install(Beacon beacon)
   {
     beacon.setMovement(new AscendMovement());
-
   }
 
 }

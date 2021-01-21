@@ -8,12 +8,6 @@ import model.ElementMobile;
 public class AscendMovement extends BeaconMovement
 {
 
-  // TURBO MARLOUTAGE PAS BIEN
-  public AscendMovement()
-  {
-    //
-  }
-
   @Override
   public void move(ElementMobile target)
   {

@@ -8,11 +8,6 @@ public abstract class Movement
 
   abstract public void move(ElementMobile target);
 
-  public Movement replacement()
-  {
-    return this;
-  }
-
   public boolean isFinish()
   {
     return this.finish;
