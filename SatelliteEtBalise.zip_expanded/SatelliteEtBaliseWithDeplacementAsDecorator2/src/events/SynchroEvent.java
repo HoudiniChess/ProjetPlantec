@@ -1,7 +1,7 @@
 package events;
 
-import behaviorStrategy.SynchronisationMovement;
 import eventHandler.AbstractEvent;
+import state.BeaconStateSynchro;
 
 public class SynchroEvent extends AbstractEvent
 {
@@ -16,8 +16,8 @@ public class SynchroEvent extends AbstractEvent
   public void runOn(Object target)
   {
     SynchroEventListener listener = (SynchroEventListener) target;
-    SynchronisationMovement movement = (SynchronisationMovement) this.getSource();
-    if (movement.synchroStarted())
+    BeaconStateSynchro synchro = (BeaconStateSynchro) this.getSource();
+    if (synchro.synchroStarted())
       listener.whenStartSynchro(this);
     else
       listener.whenStopSynchro(this);

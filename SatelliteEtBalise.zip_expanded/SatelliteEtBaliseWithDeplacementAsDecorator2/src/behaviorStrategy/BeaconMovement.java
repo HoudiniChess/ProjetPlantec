@@ -1,6 +1,5 @@
 package behaviorStrategy;
 
-import events.SatelliteMoved;
 import model.Beacon;
 import model.ElementMobile;
 
@@ -15,8 +14,5 @@ public class BeaconMovement extends Movement
   {
     this.move((Beacon) target);
   }
-
-  public void whenSatelliteMoved(SatelliteMoved arg, Beacon target)
-  {}
 
 }

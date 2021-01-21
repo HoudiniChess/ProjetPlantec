@@ -2,7 +2,6 @@ package behaviorStrategy;
 
 import java.awt.Point;
 
-import model.Beacon;
 import model.ElementMobile;
 
 public class AscendMovement extends BeaconMovement
@@ -23,10 +22,6 @@ public class AscendMovement extends BeaconMovement
       }
 
       target.setPosition(new Point(p.x, y));
-    }
-    else
-    {
-      target.getManager().baliseReadyForSynchro((Beacon) target);
     }
   }
 

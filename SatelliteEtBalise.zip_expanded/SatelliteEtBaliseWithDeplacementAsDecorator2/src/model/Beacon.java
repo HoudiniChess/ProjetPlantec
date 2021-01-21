@@ -1,13 +1,10 @@
 package model;
 
-import behaviorStrategy.BeaconMovement;
 import behaviorStrategy.Movement;
-import events.SatelliteMoveListener;
-import events.SatelliteMoved;
 import state.BeaconState;
 import state.BeaconStateCollect;
 
-public class Beacon extends ElementMobile implements SatelliteMoveListener
+public class Beacon extends ElementMobile
 {
 
   protected BeaconState state;
@@ -36,13 +33,6 @@ public class Beacon extends ElementMobile implements SatelliteMoveListener
   {
     state.behaviorState(this);
     super.tick();
-  }
-
-  @Override
-  public void whenSatelliteMoved(SatelliteMoved arg)
-  {
-    BeaconMovement dp = (BeaconMovement) this.movement;
-    dp.whenSatelliteMoved(arg, this);
   }
 
   public BeaconState getState()

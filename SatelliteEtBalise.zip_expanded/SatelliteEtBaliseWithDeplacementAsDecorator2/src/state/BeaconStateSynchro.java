@@ -44,6 +44,7 @@ public class BeaconStateSynchro extends BeaconState implements SatelliteMoveList
     int tarX = beacon.getPosition().x;
     if (satX > tarX - 10 && satX < tarX + 10)
     {
+      this.synchroStarted();
       this.synchro = sat;
       beacon.send(new SynchroEvent(this));
       this.synchro.send(new SynchroEvent(this));
@@ -66,6 +67,11 @@ public class BeaconStateSynchro extends BeaconState implements SatelliteMoveList
     this.synchroTime = 10;
     this.synchro = null;
     this.beacon = beacon;
+  }
+
+  public Boolean synchroStarted()
+  {
+    return this.synchro != null;
   }
 
 }
