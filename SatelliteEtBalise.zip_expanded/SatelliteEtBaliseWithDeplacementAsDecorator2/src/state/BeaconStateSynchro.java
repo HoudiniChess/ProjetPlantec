@@ -62,7 +62,7 @@ public class BeaconStateSynchro extends BeaconState implements SatelliteMoveList
     Satellite sat = (Satellite) arg.getSource();
     int satX = sat.getPosition().x;
     int tarX = beacon.getPosition().x;
-    if (satX > tarX - 10 && satX < tarX + 10)
+    if (satX > tarX - 20 && satX < tarX + 20)
     {
       this.satSynchro = sat;
       beacon.send(new SynchroEvent(this));

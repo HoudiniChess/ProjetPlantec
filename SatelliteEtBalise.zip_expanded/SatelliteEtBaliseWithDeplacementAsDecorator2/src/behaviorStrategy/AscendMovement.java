@@ -15,7 +15,7 @@ public class AscendMovement extends BeaconMovement
     if (y > 0)
     {
       y -= 3;
-      if (y < 0)
+      if (y <= 0)
       {
         y = 0;
         super.setFinish();
