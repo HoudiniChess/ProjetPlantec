@@ -53,6 +53,7 @@ public class Memory
   public void resetData()
   {
     this.fillMemory = 0;
+    this.send(new MemoryChanged(this));
   }
 
   public void send(AbstractEvent e)

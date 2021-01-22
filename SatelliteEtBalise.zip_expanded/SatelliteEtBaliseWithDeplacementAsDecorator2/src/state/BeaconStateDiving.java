@@ -1,29 +1,36 @@
 package state;
 
+import behaviorStrategy.DiveMovement;
 import model.Beacon;
 
 public class BeaconStateDiving extends BeaconState
 {
 
+  protected DiveMovement diveMovement;
+
   @Override
   public void behaviorState(Beacon beacon)
   {
-    // TODO Auto-generated method stub
-
+    beacon.move();
+    if (beacon.getMovement().isFinish())
+    {
+      this.nextState(beacon);
+    }
   }
 
   @Override
   public void nextState(Beacon beacon)
   {
-    // TODO Auto-generated method stub
-
+    BeaconStateCollect stateCollect = new BeaconStateCollect();
+    stateCollect.install(beacon);
+    beacon.setState(stateCollect);
   }
 
   @Override
   public void install(Beacon beacon)
   {
-    // TODO Auto-generated method stub
-
+    this.diveMovement = new DiveMovement(beacon.getStandartDeepness());
+    beacon.setMovement(this.diveMovement);
   }
 
 }

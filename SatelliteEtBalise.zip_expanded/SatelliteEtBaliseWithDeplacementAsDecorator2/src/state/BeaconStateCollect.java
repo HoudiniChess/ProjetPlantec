@@ -6,6 +6,13 @@ public class BeaconStateCollect extends BeaconState
 {
 
   @Override
+  public void install(Beacon beacon)
+  {
+    this.isInstall = true;
+    beacon.setMovement(beacon.getCollectMovement());
+  }
+
+  @Override
   public void behaviorState(Beacon beacon)
   {
 
@@ -24,11 +31,6 @@ public class BeaconStateCollect extends BeaconState
 
   }
 
-  private boolean shouldContinue(Beacon beacon)
-  {
-    return !beacon.getMemory().memoryFull();
-  }
-
   @Override
   public void nextState(Beacon beacon)
   {
@@ -38,14 +40,9 @@ public class BeaconStateCollect extends BeaconState
 
   }
 
-  @Override
-  public void install(Beacon beacon)
+  private boolean shouldContinue(Beacon beacon)
   {
-    this.isInstall = true;
-    beacon.setMovement(beacon.getCollectMovement());
-    // reprendre le mouvement de base
-    // Sauvegarde du mouvement de base ?
-
+    return !beacon.getMemory().memoryFull();
   }
 
 }

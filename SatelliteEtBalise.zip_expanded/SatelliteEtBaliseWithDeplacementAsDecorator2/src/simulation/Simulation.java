@@ -44,6 +44,7 @@ public class Simulation
     Beacon bal = new Beacon(memory);
     bal.setPosition(startPos);
     bal.setCollectMovement(depl);
+    bal.setStandartDeepness(startPos.y);
     manager.addBalise(bal);
     GrBalise grbal = new GrBalise();
     grbal.setModel(bal);

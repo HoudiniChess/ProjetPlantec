@@ -22,20 +22,13 @@ public class DiveMovement extends BeaconMovement
     {
       y += 3;
       if (y > this.deepness)
+      {
         y = this.deepness;
+        super.setFinish();
+      }
       target.setPosition(new Point(p.x, y));
     }
 
-  }
-
-  public int getDeepness()
-  {
-    return deepness;
-  }
-
-  public void setDeepness(int deepness)
-  {
-    this.deepness = deepness;
   }
 
 }

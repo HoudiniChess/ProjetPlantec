@@ -10,17 +10,13 @@ public class Beacon extends ElementMobile
   protected BeaconState state;
   Movement collectMovement; // Comportement nominal de l'element mobile.
   protected Memory memory;
+  protected Integer standartDeepness;
 
   public Beacon(Memory memory)
   {
     super();
     this.memory = memory;
     this.state = new BeaconStateCollect();
-  }
-
-  public int deepness()
-  {
-    return this.getPosition().y;
   }
 
   public void readSensors()
@@ -58,6 +54,16 @@ public class Beacon extends ElementMobile
   public void setCollectMovement(Movement collectMovement)
   {
     this.collectMovement = collectMovement;
+  }
+
+  public Integer getStandartDeepness()
+  {
+    return standartDeepness;
+  }
+
+  public void setStandartDeepness(Integer standartDeepness)
+  {
+    this.standartDeepness = standartDeepness;
   }
 
 }
