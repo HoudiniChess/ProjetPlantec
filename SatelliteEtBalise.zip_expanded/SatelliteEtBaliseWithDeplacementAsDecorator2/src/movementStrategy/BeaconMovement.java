@@ -1,4 +1,4 @@
-package behaviorStrategy;
+package movementStrategy;
 
 import model.Beacon;
 import model.ElementMobile;
@@ -6,7 +6,11 @@ import model.ElementMobile;
 public class BeaconMovement extends Movement
 {
 
-  public void move(Beacon target)
+  BeaconMovement(int speed) {
+		super(speed);
+	}
+
+public void move(Beacon target)
   {}
 
   @Override

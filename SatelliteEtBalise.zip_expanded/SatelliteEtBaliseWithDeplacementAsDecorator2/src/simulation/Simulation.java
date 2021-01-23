@@ -4,11 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
-import behaviorStrategy.HorizontalMovement;
-import behaviorStrategy.Movement;
-import behaviorStrategy.SatelliteMovement;
-import behaviorStrategy.SinusoidaleMovement;
-import behaviorStrategy.VerticalMovement;
 import graphicLayer.GBounded;
 import graphicLayer.GRect;
 import graphicLayer.GSpace;
@@ -16,6 +11,11 @@ import model.Beacon;
 import model.Manager;
 import model.Memory;
 import model.Satellite;
+import movementStrategy.HorizontalMovement;
+import movementStrategy.Movement;
+import movementStrategy.SatelliteMovement;
+import movementStrategy.SinusoidaleMovement;
+import movementStrategy.VerticalMovement;
 
 public class Simulation
 {
@@ -78,11 +78,11 @@ public class Simulation
     this.addSatellite(sky, new Point(400, 90), 3, new Memory(10000));
     this.addSatellite(sky, new Point(500, 140), 4, new Memory(10000));
     this.addSatellite(sky, new Point(600, 10), 1, new Memory(10000));
-    this.addBeacon(sea, new Point(400, 200), new HorizontalMovement(50, 750), new Memory(300));
-    this.addBeacon(sea, new Point(100, 100), new VerticalMovement(50, 200), new Memory(400));
-    this.addBeacon(sea, new Point(0, 160), new HorizontalMovement(0, 800), new Memory(200));
-    this.addBeacon(sea, new Point(200, 100), new VerticalMovement(130, 270), new Memory(500));
-    this.addBeacon(sea, new Point(300, 100), new SinusoidaleMovement(100, 700, 50, 200), new Memory(150));
+    this.addBeacon(sea, new Point(400, 200), new HorizontalMovement(4, 50, 750), new Memory(300));
+    this.addBeacon(sea, new Point(100, 100), new VerticalMovement(3, 50, 200), new Memory(400));
+    this.addBeacon(sea, new Point(0, 160), new HorizontalMovement(2, 0, 800), new Memory(200));
+    this.addBeacon(sea, new Point(200, 100), new VerticalMovement(5, 130, 270), new Memory(500));
+    this.addBeacon(sea, new Point(300, 100), new SinusoidaleMovement(3, 100, 700, 50, 200), new Memory(150));
     this.world.open();
     this.mainLoop();
   }

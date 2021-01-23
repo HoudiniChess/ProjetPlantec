@@ -1,6 +1,6 @@
 package model;
 
-import behaviorStrategy.Movement;
+import movementStrategy.Movement;
 import state.BeaconState;
 import state.BeaconStateCollect;
 

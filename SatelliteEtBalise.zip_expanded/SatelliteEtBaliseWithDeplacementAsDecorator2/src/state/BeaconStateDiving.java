@@ -1,7 +1,7 @@
 package state;
 
-import behaviorStrategy.DiveMovement;
 import model.Beacon;
+import movementStrategy.DiveMovement;
 
 public class BeaconStateDiving extends BeaconState
 {
@@ -21,6 +21,7 @@ public class BeaconStateDiving extends BeaconState
   @Override
   public void nextState(Beacon beacon)
   {
+	  System.out.println("nextState");
     BeaconStateCollect stateCollect = new BeaconStateCollect();
     stateCollect.install(beacon);
     beacon.setState(stateCollect);
@@ -29,7 +30,8 @@ public class BeaconStateDiving extends BeaconState
   @Override
   public void install(Beacon beacon)
   {
-    this.diveMovement = new DiveMovement(beacon.getStandartDeepness());
+	  int speed = beacon.getMovement().getSpeed();
+    this.diveMovement = new DiveMovement(speed, beacon.getStandartDeepness());
     beacon.setMovement(this.diveMovement);
   }
 

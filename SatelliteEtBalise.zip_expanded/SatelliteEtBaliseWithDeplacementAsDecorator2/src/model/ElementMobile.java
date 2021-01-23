@@ -2,10 +2,10 @@ package model;
 
 import java.awt.Point;
 
-import behaviorStrategy.Movement;
 import eventHandler.AbstractEvent;
 import eventHandler.EventHandler;
 import events.PositionChanged;
+import movementStrategy.Movement;
 
 public class ElementMobile
 {

@@ -1,4 +1,4 @@
-package behaviorStrategy;
+package movementStrategy;
 
 import java.awt.Point;
 
@@ -10,8 +10,9 @@ public class HorizontalMovement extends BeaconMovement
   Integer end;
   Boolean fromStartToEnd = true;
 
-  public HorizontalMovement(Integer start, Integer end)
+  public HorizontalMovement(int speed, Integer start, Integer end)
   {
+	super(speed);
     this.start = start;
     this.end = end;
   }
@@ -23,13 +24,13 @@ public class HorizontalMovement extends BeaconMovement
     int x = p.x;
     if (fromStartToEnd)
     {
-      x += 6;
+      x += speed;
       if (x > end)
         fromStartToEnd = false;
     }
     else
     {
-      x -= 2;
+      x -= speed;
       if (x < start)
         fromStartToEnd = true;
     }

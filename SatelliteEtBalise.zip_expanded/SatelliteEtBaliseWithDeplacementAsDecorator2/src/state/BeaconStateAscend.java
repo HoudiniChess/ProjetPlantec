@@ -1,7 +1,7 @@
 package state;
 
-import behaviorStrategy.AscendMovement;
 import model.Beacon;
+import movementStrategy.AscendMovement;
 
 public class BeaconStateAscend extends BeaconState
 {
@@ -28,7 +28,7 @@ public class BeaconStateAscend extends BeaconState
   @Override
   public void install(Beacon beacon)
   {
-    beacon.setMovement(new AscendMovement());
+    beacon.setMovement(new AscendMovement(beacon.getMovement().getSpeed()));
   }
 
 }

@@ -1,4 +1,4 @@
-package behaviorStrategy;
+package movementStrategy;
 
 import java.awt.Point;
 
@@ -13,15 +13,18 @@ public class SinusoidaleMovement extends BeaconMovement
   private int minY;
   private int maxY;
 
-  private int defaultSpeed = 3;
+  
 
-  public SinusoidaleMovement(int minX, int maxX, int minY, int maxY)
+  public SinusoidaleMovement(int speed, int minX, int maxX, int minY, int maxY)
   {
+	  super(speed);
     this.minX = minX;
     this.maxX = maxX;
 
     this.minY = minY;
     this.maxY = maxY;
+    
+   
   }
 
   @Override
@@ -30,10 +33,10 @@ public class SinusoidaleMovement extends BeaconMovement
     Point p = target.getPosition();
     int x = p.x;
     int y = p.y;
-    x += defaultSpeed;
+    x += speed;
     if (x < this.minX || x > this.maxX)
     {
-      defaultSpeed *= -1;
+    	speed *= -1;
     }
     y = (int) (this.minY * (Math.sin(x * 0.5 * Math.PI / 40))) + (this.maxY - this.minY);
     target.setPosition(new Point(x, y));

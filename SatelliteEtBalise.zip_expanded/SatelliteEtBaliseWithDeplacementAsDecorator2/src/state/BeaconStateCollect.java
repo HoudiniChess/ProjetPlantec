@@ -9,6 +9,7 @@ public class BeaconStateCollect extends BeaconState
   public void install(Beacon beacon)
   {
     this.isInstall = true;
+    System.out.println(beacon.getCollectMovement());
     beacon.setMovement(beacon.getCollectMovement());
   }
 

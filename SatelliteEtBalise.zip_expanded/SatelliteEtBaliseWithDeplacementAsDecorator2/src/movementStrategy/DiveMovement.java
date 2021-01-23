@@ -1,4 +1,4 @@
-package behaviorStrategy;
+package movementStrategy;
 
 import java.awt.Point;
 
@@ -7,9 +7,10 @@ import model.Beacon;
 public class DiveMovement extends BeaconMovement
 {
   int deepness;
-
-  public DiveMovement(int deepness)
+  
+  public DiveMovement(int speed, int deepness)
   {
+	super(speed);
     this.deepness = deepness;
   }
 
@@ -20,8 +21,8 @@ public class DiveMovement extends BeaconMovement
     int y = p.y;
     if (y < this.deepness)
     {
-      y += 3;
-      if (y > this.deepness)
+      y += speed;
+      if (y >= this.deepness)
       {
         y = this.deepness;
         super.setFinish();

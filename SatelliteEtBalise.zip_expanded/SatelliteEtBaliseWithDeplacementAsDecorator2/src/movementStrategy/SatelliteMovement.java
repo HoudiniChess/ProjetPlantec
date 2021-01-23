@@ -1,4 +1,4 @@
-package behaviorStrategy;
+package movementStrategy;
 
 import java.awt.Point;
 
@@ -8,13 +8,12 @@ public class SatelliteMovement extends Movement
 {
   Integer start;
   Integer end;
-  int speed;
 
   public SatelliteMovement(Integer start, Integer end, int speed)
   {
+	super(speed);
     this.start = start;
     this.end = end;
-    this.speed = speed;
   }
 
   @Override

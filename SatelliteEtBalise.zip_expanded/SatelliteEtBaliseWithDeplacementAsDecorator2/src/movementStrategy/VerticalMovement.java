@@ -1,4 +1,4 @@
-package behaviorStrategy;
+package movementStrategy;
 
 import java.awt.Point;
 
@@ -10,8 +10,9 @@ public class VerticalMovement extends BeaconMovement
   Integer max;
   Boolean goUp = false;
 
-  public VerticalMovement(Integer min, Integer max)
+  public VerticalMovement(int speed,Integer min, Integer max)
   {
+	  super(speed);
     this.min = min;
     this.max = max;
   }
@@ -23,13 +24,13 @@ public class VerticalMovement extends BeaconMovement
     int y = p.y;
     if (goUp)
     {
-      y -= 3;
+      y -= speed;
       if (y < min)
         goUp = false;
     }
     else
     {
-      y += 3;
+      y += speed;
       if (y > max)
         goUp = true;
     }
