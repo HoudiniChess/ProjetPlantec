@@ -7,20 +7,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import events.MemoryChanged;
 import graphicLayer.GImage;
-import model.Beacon;
-import model.ElementMobile;
-import model.Memory;
 
-public class GrBalise extends GrElementMobile
+public class GrBeacon extends GrMobileElement
 {
-  protected GrMemory grMemory;
 
-  public GrBalise()
+  public GrBeacon()
   {
-    this.grMemory = new GrMemory();
-    this.addElement(grMemory);
+
     File path = new File("balise.png");
     this.withoutBorder();
     this.withoutBackground();
@@ -35,15 +29,6 @@ public class GrBalise extends GrElementMobile
     }
     this.addElement(new GImage(rawImage));
     this.setDimension(new Dimension(rawImage.getWidth(), rawImage.getHeight()));
-  }
-
-  @Override
-  public void setModel(ElementMobile model)
-  {
-    super.setModel(model);
-    Memory memoire = ((Beacon) model).getMemory();
-    memoire.registerListener(MemoryChanged.class, this.grMemory);
-
   }
 
 }

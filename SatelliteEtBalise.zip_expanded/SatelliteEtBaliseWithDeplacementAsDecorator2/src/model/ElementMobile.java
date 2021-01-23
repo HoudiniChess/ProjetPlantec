@@ -9,16 +9,18 @@ import movementStrategy.Movement;
 
 public class ElementMobile
 {
-  Movement movement;
+  protected Movement movement;
 
-  Point position;
-  EventHandler eventHandler;
-  Manager manager;
+  protected Memory memory;
+  protected Point position;
+  protected EventHandler eventHandler;
+  protected Manager manager;
 
-  public ElementMobile()
+  public ElementMobile(Memory memory)
   {
     eventHandler = new EventHandler();
     this.position = new Point(0, 0);
+    this.memory = memory;
 
   }
 
@@ -48,6 +50,11 @@ public class ElementMobile
   public void tick()
   {
     this.move();
+  }
+
+  public void readSensors()
+  {
+    memory.tick();
   }
 
   public void move()
@@ -81,6 +88,11 @@ public class ElementMobile
   public Manager getManager()
   {
     return manager;
+  }
+
+  public Memory getMemory()
+  {
+    return memory;
   }
 
 }

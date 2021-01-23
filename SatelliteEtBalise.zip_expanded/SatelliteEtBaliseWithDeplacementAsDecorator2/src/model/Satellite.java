@@ -8,7 +8,7 @@ public class Satellite extends ElementMobile
 
   public Satellite(Memory memory)
   {
-    super();
+    super(memory);
     this.memory = memory;
 
   }

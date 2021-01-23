@@ -46,7 +46,7 @@ public class Simulation
     bal.setCollectMovement(depl);
     bal.setStandartDeepness(startPos.y);
     manager.addBalise(bal);
-    GrBalise grbal = new GrBalise();
+    GrBeacon grbal = new GrBeacon();
     grbal.setModel(bal);
     sea.addElement(grbal);
   }
@@ -57,7 +57,7 @@ public class Simulation
     sat.setPosition(startPos);
     sat.setMovement(new SatelliteMovement(-10, 1000, vitesse));
     manager.addSatellite(sat);
-    GrSatelitte grSat = new GrSatelitte();
+    GrSatellite grSat = new GrSatellite();
     grSat.setModel(sat);
     sky.addElement(grSat);
   }

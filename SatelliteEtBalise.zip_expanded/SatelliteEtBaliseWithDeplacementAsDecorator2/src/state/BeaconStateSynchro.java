@@ -29,6 +29,12 @@ public class BeaconStateSynchro extends BeaconState implements SatelliteMoveList
     }
 
     beacon.getMemory().removeData(SYNCHROTIME);
+    satSynchro.getMemory().addData(SYNCHROTIME);
+
+    if (satSynchro.getMemory().memoryFull())
+    {
+      satSynchro.getMemory().resetData();
+    }
 
     if (beacon.getMemory().getFillMemory() == 0)
     {

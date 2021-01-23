@@ -6,6 +6,8 @@ import model.Memory;
 public class MemoryChanged extends AbstractEvent
 {
 
+  private static final long serialVersionUID = 7813602985694517237L;
+
   public MemoryChanged(Object source)
   {
     super(source);

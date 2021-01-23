@@ -9,9 +9,9 @@ import javax.imageio.ImageIO;
 
 import graphicLayer.GImage;
 
-public class GrSatelitte extends GrElementMobile {
+public class GrSatellite extends GrMobileElement {
 
-	public GrSatelitte() {
+	public GrSatellite() {
 		File path = new File("satellite.png");
 		this.withoutBorder();
 		this.withoutBackground();
