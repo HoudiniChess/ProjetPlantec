@@ -6,11 +6,12 @@ import model.ElementMobile;
 public class BeaconMovement extends Movement
 {
 
-  BeaconMovement(int speed) {
-		super(speed);
-	}
+  public BeaconMovement(int speed)
+  {
+    super(speed);
+  }
 
-public void move(Beacon target)
+  public void move(Beacon target)
   {}
 
   @Override

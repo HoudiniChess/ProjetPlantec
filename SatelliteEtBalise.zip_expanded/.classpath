@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="2DGraphicCore/src"/>
 	<classpathentry kind="src" path="EventHandler/src"/>
 	<classpathentry kind="src" path="SatelliteEtBaliseWithDeplacementAsDecorator2/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

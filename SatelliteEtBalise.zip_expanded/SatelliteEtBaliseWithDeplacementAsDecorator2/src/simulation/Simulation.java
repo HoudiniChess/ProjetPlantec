@@ -73,11 +73,11 @@ public class Simulation
     sea.setPosition(new Point(0, 300));
     this.world.addElement(sky);
     this.world.addElement(sea);
-    this.addSatellite(sky, new Point(10, 50), 2, new Memory(10000));
-    this.addSatellite(sky, new Point(100, 10), 1, new Memory(10000));
-    this.addSatellite(sky, new Point(400, 90), 3, new Memory(10000));
-    this.addSatellite(sky, new Point(500, 140), 4, new Memory(10000));
-    this.addSatellite(sky, new Point(600, 10), 1, new Memory(10000));
+    this.addSatellite(sky, new Point(10, 50), 2, new Memory(1000));
+    this.addSatellite(sky, new Point(100, 10), 1, new Memory(1000));
+    this.addSatellite(sky, new Point(400, 90), 3, new Memory(1000));
+    this.addSatellite(sky, new Point(500, 140), 4, new Memory(1000));
+    this.addSatellite(sky, new Point(600, 10), 1, new Memory(1000));
     this.addBeacon(sea, new Point(400, 200), new HorizontalMovement(4, 50, 750), new Memory(300));
     this.addBeacon(sea, new Point(100, 100), new VerticalMovement(3, 50, 200), new Memory(400));
     this.addBeacon(sea, new Point(0, 160), new HorizontalMovement(2, 0, 800), new Memory(200));

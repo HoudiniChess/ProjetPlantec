@@ -10,7 +10,7 @@ import model.Memory;
 
 public class GrMemory extends GRect implements MemoryChangeListener
 {
-  private final static int LOADING_BAR_HEIGHT = 60;
+  private final static int LOADING_BAR_HEIGHT = 50;
   GRect loadingBar;
 
   public GrMemory()
@@ -18,6 +18,7 @@ public class GrMemory extends GRect implements MemoryChangeListener
     super();
     this.setDimension(new Dimension(15, LOADING_BAR_HEIGHT));
     this.setBorderColor(Color.BLACK);
+    this.setColor(Color.gray);
     this.loadingBar = new GRect();
     this.loadingBar.setDimension(new Dimension(14, 1));
     this.loadingBar.setColor(Color.green);
@@ -28,7 +29,7 @@ public class GrMemory extends GRect implements MemoryChangeListener
   public void whenMemoryChanged(MemoryChanged memoryChanged)
   {
     Memory memory = (Memory) memoryChanged.getSource();
-    int pourcentage = memory.getFillMemory() * 60 / memory.getSize();
+    int pourcentage = memory.getFillMemory() * LOADING_BAR_HEIGHT / memory.getSize();
 
     this.loadingBar.setDimension(new Dimension(14, pourcentage));
     this.repaint();

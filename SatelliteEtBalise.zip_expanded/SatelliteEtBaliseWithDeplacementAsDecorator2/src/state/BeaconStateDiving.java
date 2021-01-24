@@ -21,7 +21,6 @@ public class BeaconStateDiving extends BeaconState
   @Override
   public void nextState(Beacon beacon)
   {
-	  System.out.println("nextState");
     BeaconStateCollect stateCollect = new BeaconStateCollect();
     stateCollect.install(beacon);
     beacon.setState(stateCollect);
@@ -30,7 +29,7 @@ public class BeaconStateDiving extends BeaconState
   @Override
   public void install(Beacon beacon)
   {
-	  int speed = beacon.getMovement().getSpeed();
+    int speed = beacon.getMovement().getSpeed();
     this.diveMovement = new DiveMovement(speed, beacon.getStandartDeepness());
     beacon.setMovement(this.diveMovement);
   }
